@@ -1,7 +1,8 @@
 const express = require('express');
 const connectDB = require('./database/connectDB');
 const userRoute = require('./routes/user.routes');
-const cors = require('cors')
+const cors = require('cors');
+const BikeRouter = require('./routes/bike.routes');
 
 
 const app = express();
@@ -9,6 +10,7 @@ const app = express();
 app.use(cors())
 app.use(express.json())
 app.use('/user',userRoute)
+app.use('/bike',BikeRouter)
 
 
 app.get('/',(req,res)=>{

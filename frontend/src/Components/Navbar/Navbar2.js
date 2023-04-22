@@ -30,35 +30,35 @@ import { useDispatch, useSelector } from "react-redux";
 import ProfileMenu from "../Login/ProfileMenu";
 
 function Navbar(props) {
+  const [selectedCity, setSelectedCity] = useState("Bangalore");
 
-    const [selectedCity, setSelectedCity] = useState("Bangalore")
+  const isUserLoggedIn = useSelector((storeData) => {
+    return storeData.LoginSignupRed.isLoggedIn;
+  });
 
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const {
+    isOpen: isModalOpen,
+    onOpen: onModalOpen,
+    onClose: onModalClose,
+  } = useDisclosure();
 
-    const isUserLoggedIn = useSelector((storeData) => {
-        return storeData.LoginSignupRed.isLoggedIn
+  // useEffect(() => { onModalClose(true) }, [])
 
-    })
-    
+  const btnRef = React.useRef();
 
-    const { isOpen, onOpen, onClose } = useDisclosure();
-    const { isOpen: isModalOpen, onOpen: onModalOpen, onClose: onModalClose } = useDisclosure({ defaultIsOpen: true });
+  const isDark = useSelector((state) => state.themeReducer.dark);
+  const dispatchTheme = useDispatch();
 
-    // useEffect(() => { onModalClose(true) }, [])
-
-    const btnRef = React.useRef()
-
-    const isDark = useSelector(state => state.themeReducer.dark);
-    const dispatchTheme = useDispatch();
-
-    function updateTheme() {
-        // console.log(isDark)
-        if (isDark) {
-            dispatchTheme(setLightMode());
-        } else {
-            dispatchTheme(setDarkMode());
-        }
+  function updateTheme() {
+    // console.log(isDark)
+    if (isDark) {
+      dispatchTheme(setLightMode());
+    } else {
+      dispatchTheme(setDarkMode());
     }
-    console.log("Checking login auth",isUserLoggedIn)
+  }
+  // console.log("Checking login auth", isUserLoggedIn);
 
   return (
     <Container isDark={isDark}>
@@ -77,16 +77,18 @@ function Navbar(props) {
             {/* <Input placeholder='Type here...' /> */}
             <DrawerButtons>
               <DrawerCard>
-              <Link to="/tarrif">Tarrif</Link>
-                </DrawerCard>
+                <Link to="/tarrif">Tarrif</Link>
+              </DrawerCard>
               <DrawerCard>
-              <Link to="/search">Search</Link>
+                <Link to="/search">Search</Link>
               </DrawerCard>
               <DrawerCard>
                 <Link to="/blogs">Blog</Link>
               </DrawerCard>
               <DrawerCard>Partner With You</DrawerCard>
-              <DrawerCard><Link to='/biketour'>Bike Tour</Link></DrawerCard>
+              <DrawerCard>
+                <Link to="/biketour">Bike Tour</Link>
+              </DrawerCard>
               <DrawerCard>Indian Bike Routes</DrawerCard>
               <DrawerCard>About Us</DrawerCard>
               <DrawerCard>Terms & Condition</DrawerCard>
@@ -117,47 +119,81 @@ function Navbar(props) {
                     </ModalContainer>
                 </ModalContent>
             </Modal> */}
-            <CityModal isOpen={isModalOpen} setIsOpen={onModalClose} setSelectedCity={setSelectedCity} />
-            {/* <Modal isOpen={isModalOpen} onClose={onModalClose}>
+      <CityModal
+        isOpen={isModalOpen}
+        setIsOpen={onModalClose}
+        setSelectedCity={setSelectedCity}
+      />
+      {/* <Modal isOpen={isModalOpen} onClose={onModalClose}>
                 Hello Modal
             </Modal> */}
-            <Left>
-                <MenuBtn ref={btnRef} onClick={onOpen}>
-                    <IconMenu2 size={"32px"} color={isDark ? 'white' : 'black'} />
-                </MenuBtn>
-                <Link to='/'><img src="https://d36g7qg6pk2cm7.cloudfront.net/assets/landing_page/royal_brothers_logo-229959d7727f356b2e4fc3bd9c0c527c60127d009c93989a93e2daa0b1c2d556.svg" alt="" /></Link>
-            </Left>
-            <Center>
-                <CustomButton>
-                    <Link to={"/tarrif"}>Tarrif</Link>
-                </CustomButton>
-                <CustomButton>What's New?</CustomButton>
-                <CustomButton><Link to='/offers'>Offers</Link></CustomButton>
-                <CustomButton>Partner with us</CustomButton>
-            </Center>
-            <Right isDark={isDark}>
-                <Button rightIcon={<ChevronDownIcon />} leftIcon={<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z" />
-                </svg>
-                } bg={"#fed250"} colorScheme="#fed250" variant='outline' onClick={onModalOpen}>
-                    {selectedCity}
-                </Button>
-                <Box className="divider" borderLeft="1px solid rgba(0,0,0,0.2)" height="100%" />
-                <Box>
-                   {
-                    isUserLoggedIn ? <ProfileMenu/> : <NavWithoutLogin/>
-                   }
-                </Box>
-                {/* <IconButton
+      <Left>
+        <MenuBtn ref={btnRef} onClick={onOpen}>
+          <IconMenu2 size={"32px"} color={isDark ? "white" : "black"} />
+        </MenuBtn>
+        <Link to="/">
+          <img
+            src="https://d36g7qg6pk2cm7.cloudfront.net/assets/landing_page/royal_brothers_logo-229959d7727f356b2e4fc3bd9c0c527c60127d009c93989a93e2daa0b1c2d556.svg"
+            alt=""
+          />
+        </Link>
+      </Left>
+      <Center>
+        <CustomButton>
+          <Link to={"/tarrif"}>Tarrif</Link>
+        </CustomButton>
+        <CustomButton>What's New?</CustomButton>
+        <CustomButton>
+          <Link to="/offers">Offers</Link>
+        </CustomButton>
+        <CustomButton>Partner with us</CustomButton>
+      </Center>
+      <Right isDark={isDark}>
+        <Button
+          rightIcon={<ChevronDownIcon />}
+          leftIcon={
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+              />
+            </svg>
+          }
+          bg={"#fed250"}
+          colorScheme="#fed250"
+          variant="outline"
+          onClick={onModalOpen}
+        >
+          {selectedCity}
+        </Button>
+        <Box
+          className="divider"
+          borderLeft="1px solid rgba(0,0,0,0.2)"
+          height="100%"
+        />
+        <Box>{isUserLoggedIn ? <ProfileMenu /> : <NavWithoutLogin />}</Box>
+        {/* <IconButton
                     colorScheme={!isDark ? 'blackAlpha' : 'whiteAlpha'}
                     aria-label='Search database'
                     icon={<MoonIcon />}
                     onClick={updateTheme}
                 /> */}
-            </Right>
-        </Container >
-    );
+      </Right>
+    </Container>
+  );
 }
 
 const Container = styled.div`
