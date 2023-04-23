@@ -9,17 +9,18 @@ import {
 } from "./actionType";
 import axios from "axios";
 
-const url = "https://updatedroyalbrothers-api.onrender.com";
+const url = `${process.env.REACT_APP_BACKEND_URL}`;
 
 export const getData = () => (dispatch) => {
   dispatch({ type: GET_DATA_REQUEST });
   axios
-    .get(`${url}/banglore`)
+    .get(`${url}/bike`)
     .then((res) => {
       dispatch({
         type: GET_DATA_SUCCESS,
         payload: res.data,
       });
+      console.log(res.data,"Inside action js checking backend")
     })
     .catch((e) => dispatch({ type: GET_DATA_FAILURE }));
 };
@@ -29,16 +30,10 @@ export const getData = () => (dispatch) => {
 export const rentalDateAndTimeFunction = (payload) => (dispatch) => {
   console.log("Inside Rental Data",payload);
   dispatch({ type: RENTAL_DETAILS_REQUEST });
-  axios
-    .put(`${url}/rentalDetails`, payload)
-    .then((res) => {
-      dispatch({
-        type: RENTAL_DETAILS_SUCCESS,
-        payload: res.data,
-      });
-      console.log(res.data);
-    })
-    .catch((e) => dispatch({ type: RENTAL_DETAILS_ERROR }));
+  dispatch({
+    type: RENTAL_DETAILS_SUCCESS,
+    payload,
+  });
 };
 
 //<<<<<<<<<<<<<<<<<<<<<<<<< duration function >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -3,6 +3,7 @@ const connectDB = require('./database/connectDB');
 const userRoute = require('./routes/user.routes');
 const cors = require('cors');
 const BikeRouter = require('./routes/bike.routes');
+const rentalTimingRoute = require('./routes/timing.routes');
 
 
 const app = express();
@@ -11,6 +12,7 @@ app.use(cors())
 app.use(express.json())
 app.use('/user',userRoute)
 app.use('/bike',BikeRouter)
+app.use('/rental',rentalTimingRoute)
 
 
 app.get('/',(req,res)=>{
