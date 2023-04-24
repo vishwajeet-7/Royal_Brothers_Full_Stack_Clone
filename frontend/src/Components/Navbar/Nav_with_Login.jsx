@@ -4,7 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 function NavWithLogin() {
 
-    const userName = useSelector(state=>state.LoginSignupRed.name);
+    const userName = useSelector(state=>state.Login_Singup_Reducer.user.name);
     // console.log(userName)
 
     return (

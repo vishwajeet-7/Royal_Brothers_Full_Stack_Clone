@@ -14,8 +14,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import { CHECKOUT_OBJECT } from "../../Redux/search/actionType";
 
 export default function CardComp({
-  id,
-  img,
+  _id,
+  image,
   price,
   name,
   location,
@@ -32,7 +32,7 @@ export default function CardComp({
   
   const takeLocation = (event) => {
     setSearchParams({
-      id: id,
+      id: _id,
       location: event.target.value,
       price:price
     });
@@ -93,7 +93,7 @@ export default function CardComp({
         <Image
           h={"150px"}
           w="250px"
-          src={img}
+          src={image}
           textAlign={"center"}
           m="0px auto"
           mb="10px"
@@ -205,7 +205,7 @@ export default function CardComp({
             </Text>
           </Box>
           <Box>
-            <Link to={`/search/${id}`}>
+            <Link to={`/search/${_id}`}>
               <Button
                 bg={"#fed250"}
                 width={['80px','100px',"150px"]}

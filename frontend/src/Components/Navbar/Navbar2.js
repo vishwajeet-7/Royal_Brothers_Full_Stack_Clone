@@ -33,7 +33,7 @@ function Navbar(props) {
   const [selectedCity, setSelectedCity] = useState("Bangalore");
 
   const isUserLoggedIn = useSelector((storeData) => {
-    return storeData.LoginSignupRed.isLoggedIn;
+    return storeData.Login_Singup_Reducer.isLoggedIn;
   });
 
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -61,7 +61,7 @@ function Navbar(props) {
   // console.log("Checking login auth", isUserLoggedIn);
 
   return (
-    <Container isDark={isDark}>
+    <Container isDark={isDark} style={{position:'fixed',top:'30px',left:'0',width:'100%',zIndex:1}} >
       <Drawer
         isOpen={isOpen}
         placement="left"

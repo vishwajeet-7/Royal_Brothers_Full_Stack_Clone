@@ -1,0 +1,3 @@
+export const SIGNUP_DETAILS = 'SIGNUP_DETAILS'
+export const LOGGEDIN_USER = "LOGGEDIN_USER"
+export const STORE_TOKEN = "STORE_TOKEN"

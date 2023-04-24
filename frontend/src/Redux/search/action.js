@@ -18,9 +18,8 @@ export const getData = () => (dispatch) => {
     .then((res) => {
       dispatch({
         type: GET_DATA_SUCCESS,
-        payload: res.data,
+        payload: res.data.data,
       });
-      console.log(res.data,"Inside action js checking backend")
     })
     .catch((e) => dispatch({ type: GET_DATA_FAILURE }));
 };

@@ -67,7 +67,7 @@ userRoute.post('/login',async(req,res)=>{
     
             if(result){
                 const token = jwt.sign({user_id},process.env.SECRET_KEY);
-                res.send({message:"login successfull",token})
+                res.send({message:"login successfull",token,user})
             }
             else{
                 res.status(500).send({message:"Login failed"})

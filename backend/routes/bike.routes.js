@@ -53,4 +53,30 @@ BikeRouter.get('/',async(req,res)=>{
   }
 })
 
+BikeRouter.get('/asc',async(req,res)=>{
+  try {
+    const BikesDataSortedByPricelowToHigh = await Bike.find().sort({price:1});
+    res.send({
+      data: BikesDataSortedByPricelowToHigh
+    })
+  } catch (error) {
+    res.status(500).send({
+      error:"Something went wrong"
+    })
+  }
+})
+
+BikeRouter.get('/desc',async(req,res)=>{
+  try {
+    const BikesDataSortedByPricelowToHigh = await Bike.find().sort({price:-1});
+    res.send({
+      data: BikesDataSortedByPricelowToHigh
+    })
+  } catch (error) {
+    res.status(500).send({
+      error:"Something went wrong"
+    })
+  }
+})
+
 module.exports = BikeRouter;

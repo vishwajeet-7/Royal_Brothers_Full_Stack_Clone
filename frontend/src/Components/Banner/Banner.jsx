@@ -18,7 +18,7 @@ export default function Banner({title}) {
     //   </Box>
     // </Flex>
 
-    <Container display={display}>
+    <Container display={display} style={{position:'fixed',top:'0',left:'0',width:'100%',zIndex:2}}>
       <p>{title} <Link color={'blue.600'}>Know more</Link></p>
       <CloseButton onClick={handleDisplay} display={['none','none','block']}/>
     </Container>

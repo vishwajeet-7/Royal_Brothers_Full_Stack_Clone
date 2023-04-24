@@ -36,7 +36,7 @@ export default function BikeOptions() {
             fontWeight='light'
           >
             <Checkbox border={"grey"} bg={"white"} size={"sm"}  onChange={(e)=>handleClick(e,ele.model)}></Checkbox>
-            {ele.model}
+            {ele.name}
           </Flex>
         );
       })}

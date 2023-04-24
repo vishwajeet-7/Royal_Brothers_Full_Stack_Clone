@@ -14,6 +14,7 @@ export default function Relevance() {
   const duration = useSelector((store)=>store.searchReducer.rentalDetails)
   const filterData = useSelector((store)=>store.searchReducer.filterData)
   
+  
 
   //<<<<<<<<<<<<<<<<<<<<<<<<< Updated codes begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>s
 
@@ -28,9 +29,9 @@ export default function Relevance() {
       <Grid templateColumns={["repeat(1,1fr)","repeat(2,1fr)","repeat(2,1fr)","repeat(3,1fr)"]} gap={6}>
         {loading && <SkeletonComp/>}
         { filterData.length>0 ? filterData.map((ele)=>{
-          return <CardComp {...ele} key={ele.id} {...duration}/>
+          return <CardComp {...ele} key={ele._id} {...duration}/>
         }) : cityData.map((ele) => {
-          return <CardComp {...ele} key={ele.id} {...duration}/>;
+          return <CardComp {...ele} key={ele._id} {...duration}/>;
         })}
       </Grid>
     </Stack>

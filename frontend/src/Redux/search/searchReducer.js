@@ -16,31 +16,52 @@ import {
   CHECKOUT_OBJECT,
 } from "./actionType";
 
-
 let initialData = {
   cityData: [],
-  locationData: [ "Indiranagar (Near metro station)",
-  "Yeshwanthpur (BMTC Bus Station)",
-  " Koramangala (Near Oneplus Service Centre)",
-  "Hennur Lake (Next to Axis Bank)",
-  "Whitefield - Tansi Honda (Hoodi Circle)",
-  "Bellandur (Adarsh Palm Retreat)",
-  "HSR(NIFT College) (NIFT College)",
-  "Majestic (Opp to POTHYS)",
-  "BTM Layout (Below Ambur Star Briyani)",
-  "Bangalore RBx Hub",
-  "Marathalli Bridge",
-  "Electronic City"],
+  locationData: [
+    "Indiranagar (Near metro station)",
+    "Yeshwanthpur (BMTC Bus Station)",
+    " Koramangala (Near Oneplus Service Centre)",
+    "Hennur Lake (Next to Axis Bank)",
+    "Whitefield - Tansi Honda (Hoodi Circle)",
+    "Bellandur (Adarsh Palm Retreat)",
+    "HSR(NIFT College) (NIFT College)",
+    "Majestic (Opp to POTHYS)",
+    "BTM Layout (Below Ambur Star Briyani)",
+    "Bangalore RBx Hub",
+    "Marathalli Bridge",
+    "Electronic City",
+  ],
+  bikeModels: [
+    "Activa 4G",
+    "Hero Pleasure Plus",
+    "Honda Dio",
+    "Yamaha Ray ZR",
+    "Bajaj Pulsar 150",
+    "Yamaha MT-15",
+    "TVS Jupiter 125",
+    "Royal Enfield Classic",
+    "Honda CB 350 RS",
+    "Aprilia SR 160",
+    "TVS N-Torq",
+    "Yamaha R15 BS6",
+    "Royal Enfield Meteor",
+    "Gixxer 150 SF",
+    "TVS APACHE RTR",
+    "Honda Hornet 2.0",
+    "Avenger Cruise",
+    "Royal Enfield Interceptor",
+    "Bajaj Pulsar 250F",
+  ],
   isLoading: false,
   isError: false,
   locationTags: [],
   bikeTags: [],
   rentalDetails: {},
-  duration:{},
-  filterData:[],
-  paramsObject:{}
+  duration: {},
+  filterData: [],
+  paramsObject: {},
 };
-
 
 export default function searchReducer(state = initialData, { type, payload }) {
   switch (type) {
@@ -89,37 +110,36 @@ export default function searchReducer(state = initialData, { type, payload }) {
     case RENTAL_DETAILS_REQUEST:
       return {
         ...state,
-        isLoading:true,
-      }
+        isLoading: true,
+      };
     case RENTAL_DETAILS_SUCCESS:
       return {
         ...state,
-        isLoading:false,
+        isLoading: false,
         rentalDetails: payload,
-      }
+      };
     case RENTAL_DETAILS_ERROR:
       return {
         ...state,
-        isLoading:false,
-        isError:true
-      }
+        isLoading: false,
+        isError: true,
+      };
     case SET_DURATION:
-      return{
+      return {
         ...state,
-          duration:payload,
-      }
+        duration: payload,
+      };
     case FILTER_DATA:
       return {
         ...state,
-        filterData:payload
-      }
+        filterData: payload,
+      };
     case CHECKOUT_OBJECT:
       return {
         ...state,
-        paramsObject:payload
-      }
+        paramsObject: payload,
+      };
     default:
       return state;
   }
-
 }

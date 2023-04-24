@@ -41,9 +41,9 @@ export default function LowToHigh() {
       >
         {loading && <SkeletonComp />}
         {sortedNFilteredData.length>0 ? sortedNFilteredData.map((ele,idx)=>{
-            return <CardComp {...ele} key={ele.id} {...duration} />
+            return <CardComp {...ele} key={ele._id} {...duration} />
         }) : lowArray.map((ele, idx) => {
-          return <CardComp {...ele} key={ele.id} {...duration} />;
+          return <CardComp {...ele} key={ele._id} {...duration} />;
         })}
       </Grid>
     </Stack>
