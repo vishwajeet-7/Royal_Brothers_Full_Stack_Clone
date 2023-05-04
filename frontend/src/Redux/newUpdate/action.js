@@ -21,11 +21,9 @@ export const sortHighFunction = (payload) => (dispatch) => {
 //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Bike Search Filter >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
 export const bikeFilterFunction = (bikeFilter, dataArrayCity) => (dispatch) => {
-  console.log("Ander aaya", bikeFilter);
   const result = dataArrayCity.filter((ele) => {
     return bikeFilter.includes(ele);
   });
-  console.log(result);
 };
 
 //<<<<<<<<<<<<<<<<<<<< Sort Low to hight >>>>>>>>>>>>>>>>>>>>>>>>>>

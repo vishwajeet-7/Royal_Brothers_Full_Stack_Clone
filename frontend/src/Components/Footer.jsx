@@ -6,7 +6,7 @@ import '../Styles/Style.css';
 
 function Footer() {
     return (
-        <footer id="home-Footer">
+        <footer id="home-Footer" >
             <div id="main-footer">
                 <div>
                     <h5 style={{ paddingBottom: "10px" }}> ROYAL BROTHERS</h5>

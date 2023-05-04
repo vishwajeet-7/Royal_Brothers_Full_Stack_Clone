@@ -35,7 +35,7 @@ export default function BikeOptions() {
             fontFamily={"Mulish"}
             fontWeight='light'
           >
-            <Checkbox border={"grey"} bg={"white"} size={"sm"}  onChange={(e)=>handleClick(e,ele.model)}></Checkbox>
+            <Checkbox border={"grey"} bg={"white"} size={"sm"}  onChange={(e)=>handleClick(e,ele.name)}></Checkbox>
             {ele.name}
           </Flex>
         );

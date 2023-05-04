@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { LOGGEDIN_USER, STORE_TOKEN } from './actionTypes';
+import { LOGGEDIN_USER, LOGIN_ERROR, STORE_TOKEN } from './actionTypes';
 
 const url = `${process.env.REACT_APP_BACKEND_URL}/user`
 
@@ -36,7 +36,7 @@ export const loginFunction = (payload)=>{
         })
     })
     .catch((err)=>{
-        console.log(err)
+        dispatch({type:LOGIN_ERROR})
     })
     
     }

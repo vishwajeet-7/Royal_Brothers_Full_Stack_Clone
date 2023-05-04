@@ -3,9 +3,11 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { LOCATION_TAG_ADD, LOCATION_TAG_REMOVE } from "../../Redux/search/actionType";
 
-export default function Overflow() {
+export default function Overflow(searchValue) {
+const locationData = useSelector((store)=>store.searchReducer.locationData);
+const [filteredLocationData,setFilteredLocationData] = useState(locationData);
 
-  const locationData = useSelector((store)=>store.searchReducer.locationData);
+ 
   const dispatch = useDispatch();
   // const [isChecked,setIsChecked] = useState(false)
 

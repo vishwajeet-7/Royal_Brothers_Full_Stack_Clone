@@ -11,6 +11,7 @@ import {
   Tag,
   TagLabel,
   TagCloseButton,
+  useDisclosure,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { GrSearch } from "react-icons/gr";
@@ -49,6 +50,7 @@ export default function Filter() {
   const [pickTime, setPickTime] = useState("");
   const [dropTime, setDropTime] = useState("");
   const [inputLocation, setInputLocation] = useState();
+  const [searchLocationByWord,setSearchLocationByWord] = useState("");
 
   console.log("checking bike tags details", bikeFilter);
 
@@ -56,7 +58,7 @@ export default function Filter() {
   const handleSearchLocationInput = (event) => {
     const { value, name } = event.target;
     if (name === "searchLocation") {
-      console.log("test");
+      setSearchLocationByWord(value);
     } else if (name === "bikeSearch") {
       console.log("test");
     }
@@ -130,7 +132,7 @@ export default function Filter() {
   };
 
   //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Ends <<<<<<<<<<<<<<<<<<<<<<<<<<<
-  
+  console.log("checking for filterData", bikeTags,locationTags)
   const filterlocation = () => {
     // console.log(locationTags);
     let filted = data.filter((ele) => {
@@ -147,7 +149,7 @@ export default function Filter() {
   const filterByBikeModel = ()=>{
     let bikeData = filterlocation().filter((ele)=>{
       for(let i=0; i<bikeFilter.length; i++){
-        if(ele.model.includes(bikeFilter[i])){
+        if(ele.name.includes(bikeFilter[i])){
           return true;
         }
       }
@@ -185,6 +187,13 @@ export default function Filter() {
         dropoffTime: dropTime === "" ? rentalTime.dropoffTime : dropTime,
       })
     );
+
+    dispatch(findingDfferenceFunction({
+      pickupDate: dateValue === "" ? rentalTime.pickupDate : dateValue,
+      pickupTime: pickTime === "" ? rentalTime.pickupTime : pickTime,
+      dropoffDate: dropDate === "" ? rentalTime.dropoffDate : dropDate,
+      dropoffTime: dropTime === "" ? rentalTime.dropoffTime : dropTime,
+    }))
   };
 
   const handleFocusDate = (event) => {
@@ -200,9 +209,11 @@ export default function Filter() {
   //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Trying to display selected date in boxes >>>>>>>>>>>>>>>>>>>>>>>>
   return (
     <Stack
-      width={"450px"}
+      width={'25%'}
       p="5px 15px"
       display={["none", "none", "none", "block"]}
+      bg={'white'}
+
     >
       <Text
         fontSize={"20px"}
@@ -383,7 +394,7 @@ export default function Filter() {
           </InputGroup>
         </Box>
         <Box>
-          <Overflow />
+          <Overflow searchValue={searchLocationByWord}/>
         </Box>
         <Box>
           <Flex justify={"space-between"}>

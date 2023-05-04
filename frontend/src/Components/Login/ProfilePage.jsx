@@ -8,13 +8,14 @@ import { useSelector } from "react-redux";
 
 function ProfilePage() {
 
-    const storedData = useSelector((storeData) => { return storeData.LoginSignupRed })
+    const storedData = useSelector((storeData) => { return storeData.Login_Singup_Reducer.user })
 
-    useEffect(() => { getUserDetails() }, [])
+    // useEffect(() => { getUserDetails() }, [])
 
-    const getUserDetails = () => {
-        console.log(storedData)
-    }
+    // const getUserDetails = () => {
+    //     console.log(storedData)
+    // }
+    console.log(storedData);
     return (
         <Center>
             <Stack direction={['column', 'row']} spacing='35px'>

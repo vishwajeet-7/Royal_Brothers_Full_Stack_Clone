@@ -112,6 +112,7 @@ function Login() {
         dispatch(loginFunction(payload)).then((res)=>{
             nav('/')
         })
+        
       // console.log(storedData.isLoggedIn)
     //   dispatch({
     //     type: "ISLOGGEDIN",

@@ -13,6 +13,7 @@ export default function HighToLow() {
   const loading = useSelector((store) => store.searchReducer.isLoading);
   const duration = useSelector((store) => store.searchReducer.rentalDetails);
   const highFilterData = useSelector((store)=>store.sortNfilterReducer.sortedHighToLow)
+  console.log("checking filtered high to low bikes",highFilterData)
 
   useEffect(() => {
     dispatch(sortHighFunction("desc"));
@@ -38,7 +39,7 @@ export default function HighToLow() {
         gap={6}
       >
         {loading && <SkeletonComp />}
-        {highFilterData.lenght>0 ? highFilterData.map((ele)=>{
+        {highFilterData.length>0 ? highFilterData.map((ele)=>{
           return <CardComp {...ele} key={ele.id} {...duration} />;
         }) : highArray.map((ele, idx) => {
           return <CardComp {...ele} key={ele.id} {...duration} />;

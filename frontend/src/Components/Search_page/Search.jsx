@@ -28,7 +28,7 @@ export default function Search() {
     setDisplay(!display)
 }
   return (
-    <Stack>
+    <Stack >
       {/* <Flex bg={"#fed250"} justify='space-between' alignItems={'center'} display={(!display) ? "flex" : "none"}>
       <Box ml={'500px'}>
         <Text fontFamily={'Mulish'} fontSize='12px' fontWeight={'bold'} color='blackAlpha.700' display={['none','none','block']}>Now rent two wheelers for 7 days at a lower special price.<Link color={'blue.600'}> Click here for modified search.</Link></Text>
@@ -40,7 +40,7 @@ export default function Search() {
       <Banner title="Now rent two wheelers for 7 days at a lower special price." />
     <Flex pr={'30px'} >
       <Filter />
-      <Tabs w={"100%"} variant='unstyled' mt={'5px'}>
+      <Tabs w={"100%"} variant='unstyled' mt={'5px'} width={["","","75%"]} >
         <Flex alignItems={"center"}>
           <Text fontSize={"14px"} fontWeight='bold' fontFamily={'Mulish'}>Sort by</Text>
           <TabList>

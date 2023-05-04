@@ -8,16 +8,19 @@ import { GrPower } from "react-icons/gr"
 import ProfilePage from "./ProfilePage";
 import { Navigate, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { LOGOUT_USER } from "../../Redux/signup/actionTypes";
 function ProfileMenu() {
     const dispatch = useDispatch();
 
     const navigate = useNavigate();
 
     const logout = () =>{
+        localStorage.removeItem('persist:root')
         dispatch({
-            type:"LOGOUT",
+            type:LOGOUT_USER,
             payload:false
         })
+        navigate('/login');
     }
     return (
         <Menu >

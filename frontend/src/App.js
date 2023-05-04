@@ -89,9 +89,8 @@ function App() {
           <Route path="/loginwithotp" element={<LoginByOtp />} />
           <Route path="*" element={<>404</>} />
         </Routes>
-
-        <Footer />
       </Stack>
+      <Footer />
     </div>
   );
 }

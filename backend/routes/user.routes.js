@@ -70,7 +70,7 @@ userRoute.post('/login',async(req,res)=>{
                 res.send({message:"login successfull",token,user})
             }
             else{
-                res.status(500).send({message:"Login failed"})
+                res.status(404).send({message:"User not found"})
             }
         });
     } catch (error) {

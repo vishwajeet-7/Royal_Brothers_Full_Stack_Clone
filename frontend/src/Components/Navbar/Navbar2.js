@@ -61,7 +61,7 @@ function Navbar(props) {
   // console.log("Checking login auth", isUserLoggedIn);
 
   return (
-    <Container isDark={isDark} style={{position:'fixed',top:'30px',left:'0',width:'100%',zIndex:1}} >
+    <Container isDark={isDark} style={{position:'fixed',top:'30px',left:'0',width:'100%',zIndex:2}} >
       <Drawer
         isOpen={isOpen}
         placement="left"
