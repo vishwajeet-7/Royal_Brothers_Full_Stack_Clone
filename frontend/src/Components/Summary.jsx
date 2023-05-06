@@ -19,14 +19,14 @@ import {
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 
-function Summary({ model, price, img, location, total, setTotal, rentalData }) {
+function Summary({ name, price, image, location, total, setTotal, rentalData }) {
   const duration = useSelector((store) => store.searchReducer.duration);
   const [prices, setPrice] = useState(price);
   const [selectedOption, setSelectedOption] = useState("1");
 
-   console.log(duration);
+  console.log(duration);
   useEffect(() => {
-    setTotal(price*duration.hours);
+    setTotal(price * duration.hours);
     setPrice(price);
   }, [price]);
 
@@ -74,11 +74,11 @@ function Summary({ model, price, img, location, total, setTotal, rentalData }) {
       alert("Coupon not valid");
     }
     setTotal((prev) => {
-        if(prev<0) return 0
-        return prev
-      });
+      if (prev < 0) return 0;
+      return prev;
+    });
   };
-  
+
   const options = ["1", "2"];
 
   return (
@@ -99,9 +99,9 @@ function Summary({ model, price, img, location, total, setTotal, rentalData }) {
         justifyContent="space-between"
       >
         <Box mb="2" p={8}>
-          <Image src={img} alt="Product image" w={"350px"} h={"200px"} />
+          <Image src={image} alt="Product image" w={"350px"} h={"200px"} />
           <Text align={"center"} p={"10px"} fontWeight="bold">
-            {model}
+            {name}
           </Text>
         </Box>
         <Box w="100%">

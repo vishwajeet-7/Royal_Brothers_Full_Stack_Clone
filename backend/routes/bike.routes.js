@@ -53,6 +53,21 @@ BikeRouter.get('/',async(req,res)=>{
   }
 })
 
+BikeRouter.get('/:id',async(req,res)=>{
+  try {
+    const id = req.params.id
+    const bike = await Bike.find({_id:id});
+    res.send({
+      data: bike
+    })
+    
+  } catch (error) {
+    res.status(500).send({
+      error: "Something went wrong"
+    })
+  }
+})
+
 BikeRouter.get('/asc',async(req,res)=>{
   try {
     const BikesDataSortedByPricelowToHigh = await Bike.find().sort({price:1});
