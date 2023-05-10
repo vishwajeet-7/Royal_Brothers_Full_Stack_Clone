@@ -5,7 +5,6 @@ import logger from 'redux-logger'
 import searchReducer from "./search/searchReducer"
 import themeReducer from "./themeMode/themeReducer";
 import sortNfilterReducer from "./newUpdate/sortNfilterReducer";
-import { myRideReducer } from './myrides/reducermyride.js';
 import { persistStore, persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 import Login_Singup_Reducer from './signup/Login_signup_reducer'
@@ -24,7 +23,6 @@ const rootReducer = combineReducers({
     searchReducer,
     themeReducer,
     sortNfilterReducer,
-    myRideReducer
 })
 const persistedReducer = persistReducer(persistConfig,rootReducer)
 

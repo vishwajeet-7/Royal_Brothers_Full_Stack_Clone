@@ -52,8 +52,8 @@ export default function Filter() {
   const [inputLocation, setInputLocation] = useState();
   const [searchLocationByWord,setSearchLocationByWord] = useState("");
 
-  console.log("checking bike tags details", bikeFilter);
-
+ console.log("Checking locationTags",locationTags)
+ console.log("Checking bikeTags",bikeTags)
   //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< Taking input search location data >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   const handleSearchLocationInput = (event) => {
     const { value, name } = event.target;
@@ -347,7 +347,7 @@ export default function Filter() {
             >
               Search by Location
             </Text>
-            {locationTags.length > 0 && (
+            {locationTags.length>0 && (
               <Tag
                 h={"10px"}
                 key={"xs"}
@@ -370,7 +370,7 @@ export default function Filter() {
             )}
           </Flex>
           <Flex gap={4} mb={2}>
-            {locationTags &&
+            {locationTags.length>0 &&
               locationTags.map((ele, idx) => {
                 return <TagComp key={idx} tag={ele} />;
               })}
@@ -406,7 +406,7 @@ export default function Filter() {
             >
               Search by bike model
             </Text>
-            {bikeTags.length > 0 && (
+            {bikeTags.length>0 && (
               <Tag
                 h={"10px"}
                 key={"xs"}

@@ -29,7 +29,7 @@ function ProfilePage() {
                             </Center>
                             <Flex direction='column'>
                                 <Heading mb='15px' size='sm' color='#696969'>{storedData.name}</Heading>
-                                <Text mb='10px' fontSize='sm'>+91 {storedData.phone}</Text>
+                                <Text mb='10px' fontSize='sm'>+91 {storedData.mobile}</Text>
                                 <Flex mb='10px' gap='20px'>
                                     <Text fontSize='sm'>{storedData.email}</Text>
                                     <MdOutlineModeEditOutline />

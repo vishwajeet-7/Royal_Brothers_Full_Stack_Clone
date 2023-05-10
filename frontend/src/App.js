@@ -22,7 +22,6 @@ import Banner from "./Components/Banner/Banner";
 import TariffPage from "./Components/tariff_page/TariffPage";
 import BikeTour from "./Components/Bike_tour_page/BikeTour";
 import OfferPage from "./Components/offerpage/OfferPage";
-import MyRides from "./Components/my_ride_page/MyRides";
 
 import ResetPassword from "./Components/Login/ResetPassword";
 import { Stack } from "@chakra-ui/react";
@@ -72,7 +71,6 @@ function App() {
           <Route path="/biketour" element={<BikeTour />} />
           <Route path="/offers" element={<OfferPage />} />
           <Route path="/forgetPage" element={<ForgetPassword />} />
-          {<Route path="/myrides" element={<MyRides />} />}
           <Route
             path="/search/:id"
             element={

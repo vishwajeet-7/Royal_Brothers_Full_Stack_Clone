@@ -5,6 +5,7 @@ import {
   SORTED_HIGH_LOW_FILTER,
   SORTED_LOW_HIGH_FILTER,
 } from "./actionType";
+import { LOGOUT_USER } from "../signup/actionTypes";
 
 let initialState = {
   lowToHigh: [],
@@ -38,6 +39,15 @@ export default function sortNfilterReducer(
         ...state,
         sortedHighToLow: payload,
       };
+    case LOGOUT_USER:
+      return {
+        ...state,
+        lowToHigh: [],
+        highToLow: [],
+        sortedLowToHigh: [],
+        sortedHighToLow: [],
+      };
+
     default:
       return state;
   }

@@ -9,11 +9,13 @@ import { sortHighFunction } from "../../Redux/newUpdate/action";
 export default function HighToLow() {
   //<<<<<<<<<<<<<<<<<<<<<<<<< Updated codes begin>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
   const dispatch = useDispatch();
-  const highArray = useSelector((store) => store.sortNfilterReducer.highToLow);
+  let highArray = useSelector((store) => store.searchReducer.cityData);
   const loading = useSelector((store) => store.searchReducer.isLoading);
   const duration = useSelector((store) => store.searchReducer.rentalDetails);
   const highFilterData = useSelector((store)=>store.sortNfilterReducer.sortedHighToLow)
   console.log("checking filtered high to low bikes",highFilterData)
+
+  highArray = highArray.sort((a,b)=> b.price-a.price)
 
   useEffect(() => {
     dispatch(sortHighFunction("desc"));
