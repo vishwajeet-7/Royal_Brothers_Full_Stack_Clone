@@ -8,17 +8,23 @@ const rentalTimingRoute = require('./routes/timing.routes');
 
 const app = express();
 
+app.use(express.static('build'))
+
 app.use(cors())
 app.use(express.json())
-app.use('/user',userRoute)
-app.use('/bike',BikeRouter)
-app.use('/rental',rentalTimingRoute)
+app.use('/api/user',userRoute)
+app.use('/api/bike',BikeRouter)
+app.use('/api/rental',rentalTimingRoute)
 
 
 app.get('/',(req,res)=>{
     res.send({
         message:'Hello World'
     })
+})
+
+app.use('/*',(req,res)=>{
+    res.sendFile(__dirname + '/build/index.html')
 })
 
 app.listen(8080,async()=>{

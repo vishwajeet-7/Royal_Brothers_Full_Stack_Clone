@@ -81,7 +81,7 @@ BikeRouter.get('/asc',async(req,res)=>{
   }
 })
 
-BikeRouter.get('/desc',async(req,res)=>{
+BikeRouter.get('/dsc',async(req,res)=>{
   try {
     const BikesDataSortedByPricelowToHigh = await Bike.find().sort({price:-1});
     res.send({
