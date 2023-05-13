@@ -21,6 +21,7 @@
 <li>Mongoose</li>
 </ul>
 
+<div style="display:flex">
 <img src="https://www.appsinfoway.com/wp-content/uploads/2018/11/React.js_logo-512-510x510.png" width="100px"/>
 <img src="https://tse3.mm.bing.net/th?id=OIP.GETOsHQzoMt-MYBYL_cl4gAAAA&pid=Api&P=0" width="100px"/>
 <img src="https://tse3.mm.bing.net/th?id=OIP.CTvVfHEeovAx-0V5-dqVRwHaHa&pid=Api&P=0" width="100px"/>
@@ -32,6 +33,7 @@
 <img src="https://tse1.mm.bing.net/th?id=OIP.Q2C1BEQGnCBwvNIw5sUHTQHaFs&pid=Api&P=0" width="100px" height="100px"/>
 <img src="https://1.bp.blogspot.com/-9jhEkn_uApY/Xxx35kNQB1I/AAAAAAAAMKk/8Jrv75ClwUoh8bkUncTzOJIyH2rU6RkjQCLcBGAsYHQ/s1280/jwt.png" width="100px" height="100px"/>
 <img src="https://tse4.mm.bing.net/th?id=OIP.POCXmDtpxRFZBK-SXkvXLAHaFj&pid=Api&P=0" width="100px" height="100px"/>
+</div>
 
 <br>
 <br>
