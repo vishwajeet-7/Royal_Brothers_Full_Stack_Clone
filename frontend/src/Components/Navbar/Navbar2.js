@@ -61,7 +61,7 @@ function Navbar(props) {
   // console.log("Checking login auth", isUserLoggedIn);
 
   return (
-    <Container isDark={isDark} style={{position:'fixed',top:'30px',left:'0',width:'100%',zIndex:2}} >
+    <Container isDark={isDark} style={{position:'fixed',left:'0',width:'100%',zIndex:2}} >
       <Drawer
         isOpen={isOpen}
         placement="left"
@@ -200,8 +200,14 @@ const Container = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  background-color:white;
+  top:30px;
   background-color: ${(props) => (props.isDark ? "#2C3333" : "white")};
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+  @media (max-width: 450px) {
+    top:18px;
+  }
 `;
 
 const ModalContainer = styled.div``;
